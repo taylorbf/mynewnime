@@ -49,7 +49,7 @@
 				choices = db[letters[i]].noun
 			}
 			var newword = choices[rand(choices.length-1)]
-			if (newword.charAt(1)==letters[i+1] && i<letters.length-1) {
+			if (newword.charAt(1)==letters[i+1] && i<letters.length-2) {
 				i++;
 				newword = uppercaseSecondLetter(newword)
 			}
