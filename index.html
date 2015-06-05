@@ -1,0 +1,178 @@
+<html>
+
+<head>
+
+</head>
+
+<body style="background-color:#eee;font-family:helvetica neue;">
+
+<style>
+
+input {
+	outline:solid 1px black;
+}
+
+</style>
+
+	<div style="font-size:65px;font-weight:100;color:#aaa;text-align:center;margin:50px">My New NIME</div>
+
+	<input type="text" placeholder="e.g. BOB or SUZI" onkeydown="checkinput(event,this.value)" style="display:block;margin:20px auto;width:350px;font-size:20pt;font-weight:100;font-family:helvetica neue;padding:5px 10px"></input>
+
+	<div id="answer" style="font-size:30px;font-weight:300;color:#aaa;text-align:center;margin:30px;"></div>
+
+	<div style="font-size:14px;font-weight:300;color:#aaa;text-align:center;margin:30px 0px;position:absolute;bottom:0px;width:100%">for laughs or inspiration</div>
+
+	<script>
+
+	var goal = document.getElementById("answer")
+
+	function checkinput(e,name) {
+		if (e.which==13) {
+			getnime(name)
+		}
+	}
+
+	function getnime(name) {
+		name = name.toLowerCase()
+		var letters = name.split("")
+		var newnime = ""
+		for (var i=0;i<letters.length;i++) {
+			if (i<letters.length-1) {
+				choices = db[letters[i]].adj
+			} else {
+				choices = db[letters[i]].noun
+			}
+			var newword = choices[rand(choices.length-1)]
+			if (newword.charAt(1)==letters[i+1] && i<letters.length-1) {
+				i++;
+				newword = uppercaseSecondLetter(newword)
+			}
+			newnime += newword
+			newnime += " "
+		}
+		goal.innerHTML = newnime
+	} 
+
+	function uppercaseSecondLetter(word) {
+		var secondletter = word.slice(1,2)
+		secondletter = secondletter.toUpperCase()
+		return word.slice(0, 1) + secondletter + word.slice(2);
+	}
+
+	function rand(scale) {
+		return Math.floor(Math.random()*scale);
+	}
+var db = {
+		a: {
+			adj: [ "Automatic", "Autonomous", "Acoustic", "Algorithmic", "Amplified" ],
+			noun: [ "Audio", "Application", "Accordion" ]
+		},
+		b: {
+			adj: [ "Biorhythmic", "Bionic", "Breath" ],
+			noun: [ "Buttons", "Banjo" ]
+		},
+		c: {
+			adj: [ "Contact", "Conductive", "Capacitive", "Creative", "Clusterred",  "Chroma"],
+			noun: [ "Cloud", "Code", "Controller", "Control", "Camera", "Channel", "Cello", "Cajon", "Clarinet" ]
+		},
+		d: {
+			adj: [ "Distributed", "Digital", "Diffused", "Data-driven", "Detecting" ],
+			noun: [ "Database", "Drum", "Drummer" ]
+		},
+		e: {
+			adj: ["Enabled", "Expressive", "Electric", "Embedded", "Embodied", "Emotional", "Eco-", "Extreme", "Experimental" ],
+			noun: ["Expression", "Emitter", "Envelope" ]
+		},
+		f: {
+			adj: [ "Frictional", "Freely"],
+			noun: ["Foghorn", "Feedback", "Flute", "Fabric" ]
+		},
+		g: {
+			adj: [ "Gestural", "Generative", "Granular" ],
+			noun: [ "Goggles", "Gesture" ]
+		},
+		h: {
+			adj: [ "Haptic", "Hemispheric", "Handheld" ],
+			noun: [ "Hand", "Horn", "Hands" ]
+		},
+		i: {
+			adj: [ "Interactive", "Immersive", "Inguinal", "Intentional"],
+			noun: ["Instrument" ]
+		},
+		j: {
+			adj: ["Java-based" ],
+			noun: ["Jumprope" ]
+		},
+		k: {
+			adj: ["Kinetic" ],
+			noun: ["Kit" ]
+		},
+		l: {
+			adj: [ "Live", "Laser-cut", "Location-Based" ],
+			noun: ["Limiter", "Location" ]
+		},
+		m: {
+			adj: [ "Micro", "Mechanical", "Mobile", "Machine-learning", "Multi-Touch", "MIDI-", "Motion-sensed", "Musical", "Movement" ],
+			noun: [ "Mapper", "Marimba", "Media", "Music", "Motion" ]
+		},
+		n: {
+			adj: [ "Networked", "Neural", "Networked", "Nano-", "New", "Novel" ],
+			noun: [ "Nunchucks" ]
+		},
+		o: {
+			adj: [ "Ocular", "Online", "Occipital", "Object-oriented" ],
+			noun: [ "Orchestra" ]
+		},
+		p: {
+			adj: [ "Parametric", "Physiological", "Projection", "Photo-", "Printed", "Phenotypic", "Pro-active", "Predictive" ],
+			noun: [ "Phones", "Percussion", "Prototype" ]
+		},
+		q: {
+			adj: [ "Quantized", "Qualitative", "Questionable" ],
+			noun: [ "Quail" ]
+		},
+		r: {
+			adj: [ "Reactive", "Real-time", "Robotic", "Repetitive", "Radio" ],
+			noun: [ "Robot" ]
+		},
+		s: {
+			adj: [ "Sensing", "Silent", "Submersible", "Synthetic", "Sonic" ],
+			noun: [ "Sensors", "System", "Solenoid" ]
+		},
+		t: {
+			adj: [ "Tangible", "Touch" ],
+			noun: [ "Turntable", "Trumpet", "Triangle", "Transducer" ]
+		},
+		u: {
+			adj: [ "Underwater", "User-based" ],
+			noun: [ "Underwear", "User" ]
+		},
+		v: {
+			adj: [ "Voltage-controlled", "Vocal" ],
+			noun: [ "Violin" ]
+		},
+		w: {
+			adj: [ "Wooden", "Wind-controlled", "Web-enabled", "Wireless", "WIFI", "Wearable" ],
+			noun: [ "Wand", "Website", "Wiki" ]
+		},
+		x: {
+			adj: [ "Xtreme" ],
+			noun: [ "Xylophone", "X-rays" ]
+		},
+		y: {
+			adj: [ "Yodelling" ],
+			noun: [ "Yodels" ]
+		},
+		z: {
+			adj: [ "Zoomy" ],
+			noun: [ "Zoo", "Zoetrope" ]
+		}
+	}
+
+
+
+	</script>
+
+</body>
+
+</html>
