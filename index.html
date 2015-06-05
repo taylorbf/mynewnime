@@ -1,26 +1,32 @@
 <html>
 
 <head>
-
+	<title>My New NIME</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 </head>
 
-<body style="background-color:#eee;font-family:helvetica neue;">
+<body style="background-color:#eee;font-family:Lato;">
 
-<style>
+	<style>
 
-input {
-	outline:solid 1px black;
-}
+		input {
+			outline:none;
+			border:solid 1px #ccc;
+		}
+		input:focus {
+			outline:none;
+			border:solid 1px #444;
+		}
 
-</style>
+	</style>
 
-	<div style="font-size:65px;font-weight:100;color:#aaa;text-align:center;margin:50px">My New NIME</div>
+	<div style="font-size:50px;font-weight:100;color:#aaa;text-align:center;margin:50px">My New NIME</div>
 
-	<input type="text" placeholder="e.g. BOB or SUZI" onkeydown="checkinput(event,this.value)" style="display:block;margin:20px auto;width:350px;font-size:20pt;font-weight:100;font-family:helvetica neue;padding:5px 10px"></input>
+	<input type="text" placeholder="e.g. BOB or SUZI" onkeydown="checkinput(event,this.value)" style="display:block;margin:20px auto;width:400px;font-size:18pt;font-weight:100;font-family:Lato;padding:10px 15px"></input>
 
-	<div id="answer" style="font-size:30px;font-weight:300;color:#aaa;text-align:center;margin:30px;"></div>
+	<div id="answer" style="font-size:35px;font-weight:300;color:#555;text-align:center;margin:90px auto 30px;"></div>
 
-	<div style="font-size:14px;font-weight:300;color:#aaa;text-align:center;margin:30px 0px;position:absolute;bottom:0px;width:100%">for laughs or inspiration</div>
+	<div style="font-size:14px;font-weight:300;color:#aaa;text-align:center;margin:30px 0px;position:absolute;bottom:0px;width:100%">for laughs (or inspiration)</div>
 
 	<script>
 
